@@ -1,0 +1,22 @@
+{
+  "name": "central-documentacao-cashback",
+  "version": "2.5.0",
+  "description": "Central de Documentação e Apoio Rápido — Fluxo de Cashback LJB (CRM Mais Bônus 2026)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "cashback",
+    "fidelidade",
+    "lojao-do-bras",
+    "crm-mais-bonus",
+    "documentacao-tecnica",
+    "pdv",
+    "postgresql"
+  ],
+  "author": "Luiz Brito <luiz.brito@lojaodobras.com.br>",
+  "license": "UNLICENSED",
+  "private": true
+}

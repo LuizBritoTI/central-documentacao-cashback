@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central de Documentação e Apoio Rápido — Fluxo de Cashback LJB</title>
+  <meta name="description" content="Central definitiva de documentação técnica, executiva e de governança do motor de campanhas e fluxo de cashback do CRM Mais Bônus 2026 - Lojão do Brás.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       SIDEBAR NAVIGATION
+       ======================================================================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-badge">LJB</div>
+      <div class="brand-info">
+        <h2>Cashback Hub</h2>
+        <p>CRM Mais Bônus 2026</p>
+      </div>
+    </div>
+
+    <div class="sidebar-search">
+      <div class="search-wrapper">
+        <span class="search-icon"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+        <input type="text" id="global-search-input" class="search-input" placeholder="Buscar rotas, regras, SQL..." autocomplete="off">
+        <span class="search-shortcut">Ctrl+K</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">Visão Estratégica</div>
+      <a href="#visao-geral" class="nav-item active">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Visão Geral &amp; Objetivos
+      </a>
+      <a href="#fluxo-campanhas" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span> Ciclo de Campanhas
+      </a>
+      <a href="#regras-negocio" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span> Regras de Negócio
+      </a>
+      <a href="#simulador-interativo" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span> Simulador Playground 2.0
+      </a>
+      <a href="#orientacoes-portal" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span> Manual do Portal
+      </a>
+
+      <div class="nav-group-title">Qualidade &amp; Homologação</div>
+      <a href="#casos-uso" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><path d="M7 16h10"/></svg></span> Casos de Uso (QA)
+      </a>
+      <a href="#resultados-testes" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span> Matriz de Resultados
+      </a>
+
+      <div class="nav-group-title">Engenharia &amp; Dados</div>
+      <a href="#estrutura-banco" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span> Modelo de Dados &amp; ER
+      </a>
+      <a href="#dicionario-dados" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span> Dicionário de Tabelas
+      </a>
+      <a href="#rotas-integracao" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a6 6 0 0 1-12 0V8z"/></svg></span> Rotas &amp; Endpoints
+      </a>
+      <a href="#exemplos-requisicoes" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span> Payloads &amp; Contratos v2
+      </a>
+      <a href="#fluxo-comunicacao" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> Arquitetura Ponta a Ponta
+      </a>
+      <a href="#consultas-sql" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span> Queries de Auditoria
+      </a>
+
+      <div class="nav-group-title">Governança &amp; Próximos Passos</div>
+      <a href="#pontos-atencao" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span> Atenção, LGPD &amp; Falhas
+      </a>
+      <a href="#status-roadmap" class="nav-item">
+        <span class="icon"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="6"/><line x1="18" y1="10" x2="6" y2="10"/><path d="M18 6l4 4-4 4H6V2h12z"/><line x1="6" y1="2" x2="6" y2="22"/></svg></span> Status &amp; Roadmap
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span>Versão 2.5.0 (Prod)</span>
+      <span>PostgreSQL 17</span>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MAIN WRAPPER
+       ======================================================================== -->
+  <div class="main-wrapper">
+
+    <!-- Top Sticky Header -->
+    <header class="top-header">
+      <div class="header-left">
+        <button id="menu-toggle-btn" class="menu-toggle-btn" aria-label="Abrir Menu">
+          <svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="view-pills">
+          <button class="view-pill-btn active" data-view="all">Todos os Tópicos</button>
+          <button class="view-pill-btn" data-view="exec">Visão Executiva</button>
+          <button class="view-pill-btn" data-view="tech">Visão Técnica</button>
+        </div>
+      </div>
+      <div class="header-right">
+        <button id="btn-print-doc" class="btn-header-action" title="Imprimir documentação ou salvar em PDF">
+          <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Imprimir / PDF</span>
+        </button>
+        <div class="status-indicator">
+          <div class="pulse-dot"></div>
+          <span>Motor 100% Homologado</span>
+        </div>
+        <button id="theme-toggle-btn" class="theme-btn" title="Alternar para Modo Escuro">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="content-container">
+
+      <!-- Hero Banner -->
+      <section class="hero-banner">
+        <div class="hero-tag">Documentação Autorizada — Lojão do Brás</div>
+        <h1 class="hero-title">Central do Motor de Cashback & Fidelidade</h1>
+        <p class="hero-subtitle">
+          Guia definitivo de consulta, governança e integração do <strong>CRM Mais Bônus 2026</strong>. 
+          Reúne regras comerciais homologadas, memória de cálculo fiscal, arquitetura entre Portal, PDV e Banco de Dados, e runbook operacional.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-box">
+            <div class="val">77</div>
+            <div class="lbl">Lojas Físicas no Escopo</div>
+          </div>
+          <div class="stat-box">
+            <div class="val">11 / 11</div>
+            <div class="lbl">Casos de Uso Aprovados</div>
+          </div>
+          <div class="stat-box">
+            <div class="val">&lt; 150ms</div>
+            <div class="lbl">Latência Média no PDV</div>
+          </div>
+          <div class="stat-box">
+            <div class="val">100%</div>
+            <div class="lbl">Idempotência & Anti-Moeda</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           1. VISÃO GERAL DO PROJETO E SEUS OBJETIVOS
+           ==================================================================== -->
+      <section id="visao-geral" class="doc-section" data-view-type="exec">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">01</span>
+            <h2 class="section-title">Visão Geral do Projeto e Objetivos Estratégicos</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-exec">Estratégico</span>
+            <span class="badge badge-tech">Geral</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Propósito e Alinhamento Executivo</h3>
+          <p>
+            O <strong>Programa de Bônus e Cupons LJB (CRM Mais Bônus 2026)</strong> foi idealizado pela diretoria do Lojão do Brás 
+            (Adriana Bezerra Bessa e Bruno Felix Bessa) com a finalidade de substituir modelos promocionais descentralizados por um 
+            <strong>motor determinístico de fidelidade, cashback e cupons</strong>, integrado em tempo real às 77 filiais da rede.
+          </p>
+          <p>
+            Antes do início da transação no caixa, a solução garante que operadores, gerentes de loja e auditores conheçam a previsão 
+            exata do bônus a ser concedido ou resgatado, preservando as margens da empresa através de governança rígida de orçamentos.
+          </p>
+
+          <div class="flow-steps-grid">
+            <div class="flow-step-card">
+              <div class="step-num-badge">1</div>
+              <h4>Fidelização e Recompra</h4>
+              <p>Incentiva o retorno do cliente à loja no prazo de 30 dias com concessão média de 10% a 20% do valor da compra.</p>
+            </div>
+            <div class="flow-step-card">
+              <div class="step-num-badge">2</div>
+              <h4>Alavancagem do Cartão Próprio</h4>
+              <p>Premia pagamentos no Cartão Lojão com o dobro de bônus (20%), fomentando a carteira financeira interna.</p>
+            </div>
+            <div class="flow-step-card">
+              <div class="step-num-badge">3</div>
+              <h4>Controle de Verba Blindado</h4>
+              <p>Cada campanha tem teto de verba (<code>budget_limit</code>) atualizado atomicamente a cada cupom emitido, impedindo estouros.</p>
+            </div>
+            <div class="flow-step-card">
+              <div class="step-num-badge">4</div>
+              <h4>Blindagem Anti-Fraude (Anti-Moeda)</h4>
+              <p>Mecanismos específicos bloqueiam o piso de R$ 10 para colaboradores e deduzem abatimentos da base (sem bônus sobre bônus).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. FLUXO COMPLETO DAS CAMPANHAS DE CASHBACK (GOVERNANÇA & WIZARD)
+           ==================================================================== -->
+      <section id="fluxo-campanhas" class="doc-section" data-view-type="exec">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">02</span>
+            <h2 class="section-title">Fluxo Completo das Campanhas e Governança</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-exec">Governança</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Máquina de Estados de 4 Fases</h3>
+          <p>
+            Para garantir que nenhuma regra comercial incorreta ou sem autorização financeira chegue aos terminais de PDV, 
+            o sistema implementa uma máquina de estados estrita:
+          </p>
+
+          <div class="architecture-container">
+            <div class="arch-flow-diagram">
+              <div class="arch-node">
+                <div class="arch-node-icon"><svg class="arch-node-svg" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+                <h5>1. Rascunho (Draft)</h5>
+                <p>Comercial cria e edita regras no Wizard. Sem efeito nos PDVs.</p>
+              </div>
+              <div class="arch-arrow">
+                ➔
+                <span>Submeter</span>
+              </div>
+              <div class="arch-node">
+                <div class="arch-node-icon"><svg class="arch-node-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <h5>2. Pendente (PendingApproval)</h5>
+                <p>Na fila de governança gerencial para auditoria de margem.</p>
+              </div>
+              <div class="arch-arrow">
+                ➔
+                <span>Aprovar</span>
+              </div>
+              <div class="arch-node" style="border-color: var(--success);">
+                <div class="arch-node-icon"><svg class="arch-node-svg" viewBox="0 0 24 24" style="stroke: var(--success);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <h5>3. Ativa (Active)</h5>
+                <p>Em vigor no caixa das 77 lojas durante o período de vigência.</p>
+              </div>
+              <div class="arch-arrow">
+                ➔
+                <span>Encerrar</span>
+              </div>
+              <div class="arch-node">
+                <div class="arch-node-icon"><svg class="arch-node-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+                <h5>4. Encerrada (Ended)</h5>
+                <p>Prazo atingido ou interrompida. Histórico imutável no banco.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <span class="callout-icon"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
+            <div>
+              <strong>Regra de Isolamento:</strong> Apenas campanhas com status <span class="tag-code">Active</span> e cuja data/hora atual 
+              esteja entre <span class="tag-code">starts_at</span> e <span class="tag-code">ends_at</span> com verba disponível 
+              são carregadas pelo motor durante a avaliação no PDV.
+            </div>
+          </div>
+
+          <h3 style="margin-top: 28px;"><svg class="heading-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Assistente de Cadastro (Wizard em 5 Etapas)</h3>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Etapa do Wizard</th>
+                  <th>Finalidade & Dados Configurados</th>
+                  <th>Validações Automáticas no Código</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Informações Gerais</strong></td>
+                  <td>Nome da campanha, período de vigência (início/fim), teto de verba em R$ e validade dos bônus em dias.</td>
+                  <td>Data fim estritamente posterior ao início; Verba maior que zero com centavos; Validade inteira positiva.</td>
+                </tr>
+                <tr>
+                  <td><strong>2. Regras da Campanha</strong></td>
+                  <td>Mecânica (Percentual fixo, faixas de ticket, categorias), teto de abatimento (%) e gatilhos de disparo.</td>
+                  <td>Faixas em ordem crescente; Percentuais entre 0% e 100%; Teto de abatimento &le; 100%.</td>
+                </tr>
+                <tr>
+                  <td><strong>3. Escopo e Limites</strong></td>
+                  <td>Lojas participantes (77 lojas ou filiais isoladas), exclusão de itens de liquidação (clearance), piso e teto em R$.</td>
+                  <td>Validação de chaves estrangeiras contra a tabela <span class="tag-code">stores</span>; Pisos e tetos numéricos positivos.</td>
+                </tr>
+                <tr>
+                  <td><strong>4. Público-Alvo</strong></td>
+                  <td>Tipo de pessoa (Cliente comum vs Funcionário), meio de pagamento preferencial e combinador (E / OU).</td>
+                  <td>Seleção de enums mapeados diretamente no domínio backend para evitar divergências textuais.</td>
+                </tr>
+                <tr>
+                  <td><strong>5. Revisão e Salvamento</strong></td>
+                  <td>Quadro executivo com resumo de todas as variáveis configuradas e simulação prévia do comportamento.</td>
+                  <td>Validação bidirecional através de esquema Zod (no frontend) e Flunt / Domain Validation (no backend).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top: 24px;"><svg class="heading-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Ações Disponíveis na Listagem de Campanhas</h3>
+          <p>
+            Na interface do portal administrativo, o usuário gerencial conta com ações acionáveis diretamente na grade:
+          </p>
+          <ul style="padding-left: 20px; color: var(--text-muted); font-size: 0.92rem; line-height: 1.8;">
+            <li><strong>Editar:</strong> Abre o formulário da campanha com os dados preenchidos. Disponível apenas para status <code>Draft</code>.</li>
+            <li><strong>Submeter:</strong> Envia a campanha para a fila gerencial de aprovação (<code>POST /api/campaigns/{id}/submit</code>).</li>
+            <li><strong>Aprovar:</strong> Exclusivo para usuários com perfil Gerencial (<code>POST /api/campaigns/{id}/approve</code>).</li>
+            <li><strong>Rejeitar:</strong> Devolve a campanha para Rascunho, permitindo correções comerciais (<code>POST /api/campaigns/{id}/reject</code>).</li>
+            <li><strong>Encerrar:</strong> Interrompe a concessão imediatamente antes do prazo final previsto (<code>POST /api/campaigns/{id}/end</code>).</li>
+            <li><strong>Duplicar:</strong> Clona todas as mecânicas para um novo rascunho com o sufixo <em>(cópia)</em> e zera a verba consumida.</li>
+            <li><strong>Alcance:</strong> Consulta métricas de disparos de WhatsApp e créditos pendentes de resgate (<code>GET /api/campaigns/{id}/reach</code>).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           3. REGRAS DE NEGÓCIO E CRITÉRIOS DE VALIDAÇÃO
+           ==================================================================== -->
+      <section id="regras-negocio" class="doc-section" data-view-type="all">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">03</span>
+            <h2 class="section-title">Regras de Negócio e Critérios de Validação</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-exec">Regras Homologadas</span>
+            <span class="badge badge-tech">Lógica do Motor</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="callout callout-gold">
+            <span class="callout-icon"><svg class="svg-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            <div>
+              <strong>REGRA DE OURO DA CONCORRÊNCIA: CAMPANHAS NUNCA SE SOMAM!</strong><br>
+              Quando uma compra atender a mais de uma campanha ativa simultaneamente (por exemplo, 10% Geral e 15% Promocional), 
+              o motor de cálculo avalia cada uma isoladamente e <strong>concede a de maior valor financeiro em Reais</strong>. 
+              O sistema rejeita e bloqueia categoricamente a soma de percentuais (ex: 25%), protegendo a margem do varejista.
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Regra / Caso de Negócio</th>
+                  <th>Código de Teste</th>
+                  <th>Critério de Acionamento e Validação</th>
+                  <th>Exemplo Prático</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Regra Geral (10%)</strong></td>
+                  <td><span class="tag-code">C001</span></td>
+                  <td>Vendas pagas em Dinheiro, PIX ou Cartões de terceiros recebem 10% sobre a base elegível.</td>
+                  <td>Compra de R$ 200,00 gera <strong>R$ 20,00</strong> de bônus.</td>
+                </tr>
+                <tr>
+                  <td><strong>Cartão Lojão (20%)</strong></td>
+                  <td><span class="tag-code">C002</span></td>
+                  <td>Vendas com meio principal pago no Cartão Lojão dobram a bonificação para 20%.</td>
+                  <td>Compra de R$ 200,00 no Cartão Lojão gera <strong>R$ 40,00</strong> de bônus.</td>
+                </tr>
+                <tr>
+                  <td><strong>Piso Mínimo Garantido</strong></td>
+                  <td><span class="tag-code">C004</span></td>
+                  <td>Para clientes comuns, se o cálculo resultar em valor inferior a R$ 10,00, é elevado para o piso.</td>
+                  <td>Compra de R$ 30,00 geraria R$ 3,00 (10%). O motor eleva para <strong>R$ 10,00</strong>.</td>
+                </tr>
+                <tr>
+                  <td><strong>Teto Sanitário de R$ 80</strong></td>
+                  <td><span class="tag-code">C005</span></td>
+                  <td>Compras corporativas ou vultosas possuem corte sanitário de R$ 80,00 por compra.</td>
+                  <td>Compra de R$ 1.000,00 geraria R$ 100,00. O motor corta e concede <strong>R$ 80,00</strong>.</td>
+                </tr>
+                <tr>
+                  <td><strong>Base Líquida (Anti-Bônus)</strong></td>
+                  <td><span class="tag-code">C008</span></td>
+                  <td>O valor resgatado no cupom é deduzido da base de cálculo antes de calcular o novo bônus gerado.</td>
+                  <td>Compra de R$ 200,00 com resgate de R$ 10,00: Base = R$ 190,00 &rarr; Bônus = <strong>R$ 19,00</strong>.</td>
+                </tr>
+                <tr>
+                  <td><strong>Resgate Proporcional (1:3.3)</strong></td>
+                  <td><span class="tag-code">Redemption</span></td>
+                  <td>O cliente pode abater saldo acumulado até o limite de ~30,3% do valor da compra.</td>
+                  <td>Compra de R$ 60,00 com saldo de R$ 30,00 pode abater no máx <strong>R$ 18,18</strong> (saldo resta).</td>
+                </tr>
+                <tr>
+                  <td><strong>Colaborador (Anti-Moeda)</strong></td>
+                  <td><span class="tag-code">Employee</span></td>
+                  <td>Colaboradores da rede recebem 10% puro e <strong>não possuem direito ao piso de R$ 10,00</strong>.</td>
+                  <td>Colaborador compra R$ 30,00 &rarr; recebe <strong>R$ 3,00</strong> (bloqueia geração indevida de moeda).</td>
+                </tr>
+                <tr>
+                  <td><strong>Categoria / Volume</strong></td>
+                  <td><span class="tag-code">C006 / C007</span></td>
+                  <td>Regras por departamento (ex: Cuecas 10%) ou escalonadas por volume mínimo (3 peças ganham 12%).</td>
+                  <td>Compra com 3 peças ativa 12%. Compra com 2 peças recai na regra geral de 10%.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           4. SIMULADOR INTERATIVO PLAYGROUND 2.0 (AO VIVO)
+           ==================================================================== -->
+      <section id="simulador-interativo" class="doc-section" data-view-type="all">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">04</span>
+            <h2 class="section-title">Simulador Interativo do Motor (Playground 2.0)</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-exec">Simulação Real</span>
+            <span class="badge badge-tech">Trace JSON</span>
+          </div>
+        </div>
+
+        <div class="simulator-card">
+          <div class="sim-header">
+            <div>
+              <div class="sim-title"><svg class="heading-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Laboratório de Cálculo, Concorrência e Cupom Fiscal</div>
+              <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">
+                Mova os seletores para observar o motor decidindo em tempo real, visualizando a barra de concorrência e o comprovante térmico do PDV.
+              </p>
+            </div>
+            <span class="status-tag status-approved">Algoritmo Homologado</span>
+          </div>
+
+          <div class="sim-grid">
+            <!-- Controls -->
+            <div class="sim-controls">
+              <div class="sim-group">
+                <div class="sim-label-row">
+                  <label for="sim-slider-purchase">Valor da Venda no Caixa:</label>
+                  <span id="sim-display-purchase" class="sim-val-display">R$ 200,00</span>
+                </div>
+                <input type="range" id="sim-slider-purchase" class="sim-slider" min="10" max="1500" step="10" value="200">
+              </div>
+
+              <div class="sim-group">
+                <div class="sim-label-row">
+                  <label for="sim-slider-redeemed">Abatimento de Bônus Anterior (Resgate):</label>
+                  <span id="sim-display-redeemed" class="sim-val-display">R$ 10,00</span>
+                </div>
+                <input type="range" id="sim-slider-redeemed" class="sim-slider" min="0" max="150" step="5" value="10">
+              </div>
+
+              <div class="sim-group">
+                <label for="sim-payment-method">Meio de Pagamento Principal:</label>
+                <select id="sim-payment-method" class="sim-select">
+                  <option value="CARTAO_LOJAO">Cartão Lojão do Brás (Regra C002 - 20%)</option>
+                  <option value="PIX_DINHEIRO">Dinheiro / PIX / Cartão Terceiros (Regra C001 - 10%)</option>
+                </select>
+              </div>
+
+              <div class="sim-group">
+                <label for="sim-person-type">Classificação do Cliente:</label>
+                <select id="sim-person-type" class="sim-select">
+                  <option value="Customer">Cliente Regular (Elegível a Piso R$ 10)</option>
+                  <option value="Employee">Colaborador / Funcionário (Anti-Moeda: Sem Piso)</option>
+                </select>
+              </div>
+
+              <div class="sim-group">
+                <label for="sim-category">Categoria Principal do Carrinho:</label>
+                <select id="sim-category" class="sim-select">
+                  <option value="GERAL">Geral / Moda Mista</option>
+                  <option value="CUECAS">Moda Íntima / Cuecas (Campanha Destaque 12%)</option>
+                </select>
+              </div>
+
+              <!-- Concurrency Bar Chart -->
+              <div class="concurrency-bar-box">
+                <div class="concurrency-bar-title"><svg class="svg-icon" viewBox="0 0 24 24" style="width:14px;height:14px;margin-right:6px;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> Concorrência entre Regras (Regra de Ouro: Sem Soma)</div>
+                
+                <div class="concurrency-item">
+                  <div class="concurrency-item-header">
+                    <span>C001 - Geral (10%)</span>
+                    <span id="concurrency-val-c001">R$ 19,00</span>
+                  </div>
+                  <div class="concurrency-bar-track">
+                    <div id="concurrency-fill-c001" class="concurrency-bar-fill loser" style="width: 50%;"></div>
+                  </div>
+                </div>
+
+                <div class="concurrency-item">
+                  <div class="concurrency-item-header">
+                    <span>C002 - Cartão Lojão (20%)</span>
+                    <span id="concurrency-val-c002">R$ 38,00</span>
+                  </div>
+                  <div class="concurrency-bar-track">
+                    <div id="concurrency-fill-c002" class="concurrency-bar-fill winner" style="width: 100%;"></div>
+                  </div>
+                </div>
+
+                <div class="concurrency-item">
+                  <div class="concurrency-item-header">
+                    <span>C006 - Categoria (12%)</span>
+                    <span id="concurrency-val-c006">Inelegível</span>
+                  </div>
+                  <div class="concurrency-bar-track">
+                    <div id="concurrency-fill-c006" class="concurrency-bar-fill loser" style="width: 0%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Output Panel -->
+            <div class="sim-output-panel">
+              <div class="sim-kpi-row">
+                <div class="sim-kpi">
+                  <div class="label">Base Líquida Elegível</div>
+                  <div class="value" id="sim-res-base">R$ 190,00</div>
+                </div>
+                <div class="sim-kpi highlight">
+                  <div class="label">Bônus Concedido Final</div>
+                  <div class="value" id="sim-res-granted">R$ 38,00</div>
+                </div>
+              </div>
+
+              <div class="sim-decision-trace">
+                <h5 style="color: var(--text-main); margin-bottom: 6px; font-weight: 800; display: flex; align-items: center; gap: 6px;"><svg class="svg-icon" viewBox="0 0 24 24" style="width:15px;height:15px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Justificativa do Motor de Decisão:</h5>
+                <p id="sim-trace-desc" style="color: var(--text-muted); margin-bottom: 10px; font-size: 0.88rem;">Concessão normal: maior regra individual.</p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span id="sim-badge-floor" class="status-tag">Sem Piso</span>
+                  <span id="sim-badge-ceil" class="status-tag">Abaixo do Teto</span>
+                  <span id="sim-badge-employee" class="status-tag">Cliente Regular</span>
+                </div>
+              </div>
+
+              <!-- Thermal POS Slip Mockup -->
+              <div class="pos-receipt-preview">
+                <div class="pos-receipt-header">
+                  *** LOJÃO DO BRÁS - FILIAL 01 ***<br>
+                  COMPROVANTE DE CRÉDITO DE FIDELIDADE
+                </div>
+                <div class="pos-receipt-line">
+                  <span>TOTAL DOS PRODUTOS:</span>
+                  <span id="pos-slip-subtotal">R$ 200,00</span>
+                </div>
+                <div class="pos-receipt-line">
+                  <span>DESCONTO DE RESGATE:</span>
+                  <span id="pos-slip-discount">-R$ 10,00</span>
+                </div>
+                <div class="pos-receipt-line" style="font-weight: 800; border-top: 1px dashed #999; margin-top: 4px; padding-top: 4px;">
+                  <span>VALOR PAGO EFETIVO:</span>
+                  <span id="pos-slip-paid">R$ 190,00</span>
+                </div>
+                <div class="pos-receipt-bonus">
+                  PARABÉNS! VOCÊ ACUMULOU:<br>
+                  <strong style="font-size: 0.95rem;" id="pos-slip-bonus">R$ 38,00</strong><br>
+                  <span style="font-size: 0.65rem;" id="pos-slip-campaign">QA - LUIZ - Campanha C002 - Cartao Lojao 20%</span><br>
+                  VALIDADE: 30 DIAS EM QUALQUER LOJA
+                </div>
+              </div>
+
+              <div style="margin-top: 16px;">
+                <div class="code-box" style="margin: 0; max-height: 140px; overflow-y: auto;">
+                  <pre style="padding: 10px; font-size: 0.74rem;"><code id="sim-json-code"></code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. ORIENTAÇÕES PARA UTILIZAÇÃO DO PORTAL
+           ==================================================================== -->
+      <section id="orientacoes-portal" class="doc-section" data-view-type="exec">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">05</span>
+            <h2 class="section-title">Orientações para Utilização do Portal</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-exec">Manual de Uso</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Perfis de Acesso e Matriz de Autorização</h3>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Perfil de Usuário</th>
+                  <th>Permissões no Portal</th>
+                  <th>Responsabilidades Principais</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Comercial / Marketing</strong></td>
+                  <td>Criar campanhas, salvar rascunhos, editar rascunhos e submeter para aprovação.</td>
+                  <td>Parametrização das datas promocionais, faixas de ticket e orçamentos.</td>
+                </tr>
+                <tr>
+                  <td><strong>Gerência Executiva</strong></td>
+                  <td>Aprovar ou rejeitar campanhas, interromper antecipadamente e alterar limites globais.</td>
+                  <td>Validação do impacto financeiro na margem antes de ativar no PDV.</td>
+                </tr>
+                <tr>
+                  <td><strong>Auditoria / Suporte</strong></td>
+                  <td>Consulta em tempo real de memórias de cálculo, decisões e lotes de clientes.</td>
+                  <td>Atendimento N2/N3 a dúvidas e divergências apontadas pelos operadores de caixa.</td>
+                </tr>
+                <tr>
+                  <td><strong>Administrador / DevOps</strong></td>
+                  <td>Gestão de integrações, chaves de API de loja, certificados mTLS e monitoramento outbox.</td>
+                  <td>Garantia de alta disponibilidade da infraestrutura e sincronização de dados.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top: 24px;"><svg class="heading-icon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Checklist Pré-Lançamento de Campanha</h3>
+          <p>Antes de clicar em <em>Submeter</em> no Portal, certifique-se de validar os 4 pontos essenciais:</p>
+          <div class="flow-steps-grid">
+            <div class="flow-step-card">
+              <div class="step-num-badge">1</div>
+              <h4>Orçamento Compatível</h4>
+              <p>O <code>budget_limit</code> deve contemplar a projeção de vendas para não desativar a campanha prematuramente.</p>
+            </div>
+            <div class="flow-step-card">
+              <div class="step-num-badge">2</div>
+              <h4>Lojas Homologadas</h4>
+              <p>Confirmar se o benefício é para as 77 lojas ou apenas unidades piloto selecionadas.</p>
+            </div>
+            <div class="flow-step-card">
+              <div class="step-num-badge">3</div>
+              <h4>Dedução de Base Líquida</h4>
+              <p>Mantenha sempre marcada a opção <code>DeductRedeemedBonusFromBase = true</code> para blindar o varejista.</p>
+            </div>
+            <div class="flow-step-card">
+              <div class="step-num-badge">4</div>
+              <h4>Validade Adequada</h4>
+              <p>O padrão homologado é de <strong>30 dias</strong> para estimular o ciclo de recompra no mês subsequente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           6. CASOS DE USO E CENÁRIOS TESTADOS (QA)
+           ==================================================================== -->
+      <section id="casos-uso" class="doc-section" data-view-type="all">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">06</span>
+            <h2 class="section-title">Casos de Uso e Cenários Testados</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-tech">Homologação Técnica</span>
+            <span class="badge badge-exec">Casos Reais</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><path d="M7 16h10"/></svg> Matriz de Testes Executados no Motor</h3>
+          <p>
+            Abaixo estão documentados os cenários simulados durante a rodada de homologação formal de regras com a diretoria:
+          </p>
+
+          <div class="accordion open">
+            <div class="accordion-header">
+              <h4><svg class="svg-icon" viewBox="0 0 24 24" style="color:var(--brand-blue);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg> Cenários de Concessão Padrão (C001 e C002)</h4>
+              <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Cenário 1 (QA-C001):</strong> Venda de R$ 200,00 paga em PIX. Resultado: Concessão de 10% (R$ 20,00).</p>
+              <p><strong>Cenário 2 (QA-C002):</strong> Venda de R$ 200,00 paga no Cartão Lojão. Resultado: Dobra para 20% (R$ 40,00).</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h4><svg class="svg-icon" viewBox="0 0 24 24" style="color:var(--brand-blue);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg> Concorrência de Campanhas — Regra de Ouro (C001 vs C003)</h4>
+              <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Cenário 3 (QA-C003):</strong> Venda de R$ 200,00 elegível para 10% (R$ 20,00) e 15% (R$ 30,00).</p>
+              <p><strong>Comportamento Auditado:</strong> O motor elege a campanha de 15% (R$ 30,00) e registra rejeição de C001 por menor valor financeiro. <strong>Não soma 25% (R$ 50,00).</strong></p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h4><svg class="svg-icon" viewBox="0 0 24 24" style="color:var(--brand-blue);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg> Piso Mínimo e Teto Sanitário (C004 e C005)</h4>
+              <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Cenário 4 (QA-C004 - Piso):</strong> Compra pequena de R$ 30,00. 10% daria R$ 3,00. O motor aplica piso de R$ 10,00.</p>
+              <p><strong>Cenário 5 (QA-C005 - Teto):</strong> Compra corporativa de R$ 1.000,00. 10% daria R$ 100,00. O motor corta no teto de R$ 80,00.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h4><svg class="svg-icon" viewBox="0 0 24 24" style="color:var(--brand-blue);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg> Base Líquida e Dedução de Resgate (C008 e C009)</h4>
+              <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Cenário 6 (QA-C008 - Base Líquida ON):</strong> Compra de R$ 200,00 com abatimento de R$ 10,00 de bônus anterior. Base = R$ 190,00 &rarr; Bônus 10% = R$ 19,00.</p>
+              <p><strong>Cenário 7 (QA-C009 - Base Líquida OFF):</strong> Compra de R$ 200,00 com abatimento de R$ 10,00. Parâmetro configurado para calcular sobre o bruto: Base = R$ 200,00 &rarr; Bônus = R$ 20,00.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h4><svg class="svg-icon" viewBox="0 0 24 24" style="color:var(--brand-blue);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg> Proteção Anti-Moeda para Colaboradores (Employee Rule)</h4>
+              <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Cenário 8 (QA-Employee):</strong> Colaborador da loja faz compra diária de R$ 30,00 para gerar crédito.</p>
+              <p><strong>Comportamento Auditado:</strong> O motor identifica o colaborador pela claim e aplica 10% puro (R$ 3,00). <strong>O piso de R$ 10,00 é desativado com sucesso.</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. RESULTADOS OBTIDOS NOS TESTES
+           ==================================================================== -->
+      <section id="resultados-testes" class="doc-section" data-view-type="exec">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">07</span>
+            <h2 class="section-title">Resultados Obtidos nos Testes de Homologação</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-exec">Status 100% OK</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> Consolidação dos Ensaios de Mesa e PDV</h3>
+          <p>
+            Todos os 11 cenários foram submetidos a testes de carga e testes unitários automatizados com o motor rodando contra o banco de dados PostgreSQL:
+          </p>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Caso de Teste</th>
+                  <th>Entrada (Valor / Pagamento / Cliente)</th>
+                  <th>Saída Esperada</th>
+                  <th>Saída Observada</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>C001 - Geral</strong></td>
+                  <td>R$ 200,00 | Dinheiro / PIX | Cliente Comum</td>
+                  <td>R$ 20,00 de crédito (10%)</td>
+                  <td>R$ 20,00 registrado no lote</td>
+                  <td><span class="status-tag status-approved">Aprovado</span></td>
+                </tr>
+                <tr>
+                  <td><strong>C002 - Cartão Lojão</strong></td>
+                  <td>R$ 200,00 | Cartão Lojão | Cliente Comum</td>
+                  <td>R$ 40,00 de crédito (20%)</td>
+                  <td>R$ 40,00 registrado no lote</td>
+                  <td><span class="status-tag status-approved">Aprovado</span></td>
+                </tr>
+                <tr>
+                  <td><strong>C003 - Concorrência</strong></td>
+                  <td>R$ 200,00 | Concorre 10% vs 15%</td>
+                  <td>R$ 30,00 (Vence 15%, sem somar)</td>
+                  <td>R$ 30,00 (Trace: C001 Loser)</td>
+                  <td><span class="status-tag status-approved">Aprovado</span></td>
+                </tr>
+                <tr>
+                  <td><strong>C004 - Piso R$ 10</strong></td>
+                  <td>R$ 30,00 | PIX | Cliente Comum</td>
+                  <td>R$ 10,00 (Elevação de piso)</td>
+                  <td>R$ 10,00 (floorApplied = true)</td>
+                  <td><span class="status-tag status-approved">Aprovado</span></td>
+                </tr>
+                <tr>
+                  <td><strong>C005 - Teto R$ 80</strong></td>
+                  <td>R$ 1.000,00 | Cartão Lojão | Comum</td>
+                  <td>R$ 80,00 (Corte no teto)</td>
+                  <td>R$ 80,00 (ceilingApplied = true)</td>
+                  <td><span class="status-tag status-approved">Aprovado</span></td>
+                </tr>
+                <tr>
+                  <td><strong>C008 - Base Líquida</strong></td>
+                  <td>R$ 200,00 (- R$ 10,00 de resgate)</td>
+                  <td>Base R$ 190,00 &rarr; R$ 19,00</td>
+                  <td>R$ 19,00 concedido</td>
+                  <td><span class="status-tag status-approved">Aprovado</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Anti-Moeda</strong></td>
+                  <td>R$ 30,00 | Colaborador</td>
+                  <td>R$ 3,00 (Piso recusado)</td>
+                  <td>R$ 3,00 (floorApplied = false)</td>
+                  <td><span class="status-tag status-approved">Aprovado</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           8. ESTRUTURA E RELACIONAMENTO DAS TABELAS DO BANCO DE DADOS
+           ==================================================================== -->
+      <section id="estrutura-banco" class="doc-section" data-view-type="tech">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">08</span>
+            <h2 class="section-title">Estrutura e Relacionamento do Banco de Dados</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-tech">PostgreSQL 17</span>
+            <span class="badge badge-tech">Supabase</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> Esquema Relacional & Entidades Chave</h3>
+          <p>
+            O modelo de dados combina tabelas relacionais em terceira forma normal (3NF) com colunas estruturadas <code>JSONB</code> 
+            para flexibilidade de regras promocionais:
+          </p>
+
+          <div class="er-grid">
+            <!-- campaigns -->
+            <div class="er-card">
+              <div class="er-card-header">
+                <span class="er-table-name">campaigns</span>
+                <span class="tag-code">Mestre</span>
+              </div>
+              <ul class="er-field-list">
+                <li class="er-field-item">
+                  <span class="er-field-name"><span class="er-key-pk">PK</span> id</span>
+                  <span class="er-field-type">UUID</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name"><span class="er-key-fk">FK</span> tenant_id</span>
+                  <span class="er-field-type">UUID</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name">name</span>
+                  <span class="er-field-type">VARCHAR(200)</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name">budget_limit</span>
+                  <span class="er-field-type">DECIMAL(14,2)</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name">mechanic_spec</span>
+                  <span class="er-field-type">JSONB</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- campaign_store_scopes -->
+            <div class="er-card">
+              <div class="er-card-header">
+                <span class="er-table-name">campaign_store_scopes</span>
+                <span class="tag-code">N:N</span>
+              </div>
+              <ul class="er-field-list">
+                <li class="er-field-item">
+                  <span class="er-field-name"><span class="er-key-fk">FK</span> campaign_id</span>
+                  <span class="er-field-type">UUID</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name"><span class="er-key-fk">FK</span> store_id</span>
+                  <span class="er-field-type">VARCHAR(20)</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- engine_decisions -->
+            <div class="er-card">
+              <div class="er-card-header">
+                <span class="er-table-name">engine_decisions</span>
+                <span class="tag-code">Append-Only</span>
+              </div>
+              <ul class="er-field-list">
+                <li class="er-field-item">
+                  <span class="er-field-name"><span class="er-key-pk">PK</span> id</span>
+                  <span class="er-field-type">UUID</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name">sale_id</span>
+                  <span class="er-field-type">VARCHAR(100)</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name"><span class="er-key-fk">FK</span> customer_id</span>
+                  <span class="er-field-type">UUID</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name">granted_amount</span>
+                  <span class="er-field-type">DECIMAL(12,2)</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name">trace_json</span>
+                  <span class="er-field-type">JSONB</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- bonus_lots -->
+            <div class="er-card">
+              <div class="er-card-header">
+                <span class="er-table-name">bonus_lots</span>
+                <span class="tag-code">FIFO</span>
+              </div>
+              <ul class="er-field-list">
+                <li class="er-field-item">
+                  <span class="er-field-name"><span class="er-key-pk">PK</span> id</span>
+                  <span class="er-field-type">UUID</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name"><span class="er-key-fk">FK</span> customer_id</span>
+                  <span class="er-field-type">UUID</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name">amount</span>
+                  <span class="er-field-type">DECIMAL(12,2)</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name">expires_at</span>
+                  <span class="er-field-type">TIMESTAMPTZ</span>
+                </li>
+                <li class="er-field-item">
+                  <span class="er-field-name">status</span>
+                  <span class="er-field-type">VARCHAR(20)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           9. DESCRIÇÃO DAS COLUNAS E DICIONÁRIO DE DADOS
+           ==================================================================== -->
+      <section id="dicionario-dados" class="doc-section" data-view-type="tech">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">09</span>
+            <h2 class="section-title">Descrição das Colunas e Dicionário de Dados</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-tech">Data Dictionary</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Dicionário Analítico das Tabelas Principais</h3>
+
+          <!-- Table 1: campaigns -->
+          <h4 style="color: var(--brand-blue); margin: 20px 0 10px;">Tabela: campaigns</h4>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Coluna</th>
+                  <th>Tipo de Dado</th>
+                  <th>Nulo?</th>
+                  <th>Finalidade e Regra</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="tag-code">id</span></td>
+                  <td>UUID (PK)</td>
+                  <td>Não</td>
+                  <td>Identificador universal único da campanha promocional.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">tenant_id</span></td>
+                  <td>UUID (FK)</td>
+                  <td>Não</td>
+                  <td>Isolamento multi-tenant (Lojão do Brás).</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">name</span></td>
+                  <td>VARCHAR(200)</td>
+                  <td>Não</td>
+                  <td>Nome de identificação comercial da campanha.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">status</span></td>
+                  <td>VARCHAR(30)</td>
+                  <td>Não</td>
+                  <td>Estado de governança: <code>Draft</code>, <code>PendingApproval</code>, <code>Active</code>, <code>Ended</code>.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">budget_limit</span></td>
+                  <td>DECIMAL(14,2)</td>
+                  <td>Não</td>
+                  <td>Teto financeiro de verba em Reais aprovado para a campanha.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">budget_consumed</span></td>
+                  <td>DECIMAL(14,2)</td>
+                  <td>Não</td>
+                  <td>Total acumulado concedido em cupons fiscais até o momento.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">validity_days</span></td>
+                  <td>INTEGER</td>
+                  <td>Não</td>
+                  <td>Dias de validade do crédito concedido (ex: 30 dias).</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">mechanic_spec</span></td>
+                  <td>JSONB</td>
+                  <td>Não</td>
+                  <td>Estrutura com o tipo de taxa (ex: <code>{"Type":"FixedPercentage","Percentage":0.20}</code>).</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">restrictions</span></td>
+                  <td>JSONB</td>
+                  <td>Sim</td>
+                  <td>Parâmetros de corte (ex: <code>MinBonusAmount</code>, <code>MaxBonusAmount</code>, <code>DeductRedeemedBonusFromBase</code>).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table 2: engine_decisions -->
+          <h4 style="color: var(--brand-blue); margin: 24px 0 10px;">Tabela: engine_decisions (Log Imutável)</h4>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Coluna</th>
+                  <th>Tipo de Dado</th>
+                  <th>Nulo?</th>
+                  <th>Finalidade e Regra</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="tag-code">id</span></td>
+                  <td>UUID (PK)</td>
+                  <td>Não</td>
+                  <td>Identificador do registro de decisão emitido pelo motor.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">sale_id</span></td>
+                  <td>VARCHAR(100)</td>
+                  <td>Não</td>
+                  <td>Número do cupom fiscal ou transação do PDV (chave de idempotência).</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">customer_id</span></td>
+                  <td>UUID (FK)</td>
+                  <td>Não</td>
+                  <td>Cliente beneficiado com o cálculo.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">eligible_base</span></td>
+                  <td>DECIMAL(12,2)</td>
+                  <td>Não</td>
+                  <td>Base de cálculo líquida após exclusão de itens de clearance e abatimentos.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">winning_campaign_name</span></td>
+                  <td>VARCHAR(200)</td>
+                  <td>Sim</td>
+                  <td>Nome da campanha que concedeu o benefício vencedor.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">granted_amount</span></td>
+                  <td>DECIMAL(12,2)</td>
+                  <td>Não</td>
+                  <td>Valor efetivo em Reais gravado no saldo do cliente.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">floor_applied</span></td>
+                  <td>BOOLEAN</td>
+                  <td>Não</td>
+                  <td>Sinaliza se o piso sanitário de R$ 10,00 precisou ser elevado.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">ceiling_applied</span></td>
+                  <td>BOOLEAN</td>
+                  <td>Não</td>
+                  <td>Sinaliza se o teto de R$ 80,00 foi atingido e cortado.</td>
+                </tr>
+                <tr>
+                  <td><span class="tag-code">trace_json</span></td>
+                  <td>JSONB</td>
+                  <td>Não</td>
+                  <td>Memória de cálculo completa com todas as campanhas avaliadas e motivos de rejeição.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           10. ROTAS E ENDPOINTS UTILIZADOS NAS INTEGRAÇÕES
+           ==================================================================== -->
+      <section id="rotas-integracao" class="doc-section" data-view-type="tech">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">10</span>
+            <h2 class="section-title">Rotas e Endpoints de Integração (PDV & Portal)</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-tech">REST API</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a6 6 0 0 1-12 0V8z"/></svg> Tabela Sequencial de Endpoints do Checkout</h3>
+          <p>
+            O fluxo de checkout no caixa segue rigorosamente 6 passos padronizados:
+          </p>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Passo</th>
+                  <th>Verbo</th>
+                  <th>Endpoint</th>
+                  <th>Momento no Caixa</th>
+                  <th>Autenticação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Passo 0</strong></td>
+                  <td><span class="tag-code">POST</span></td>
+                  <td><code>/api/auth/login</code></td>
+                  <td>Início do turno / abertura do caixa pelo operador.</td>
+                  <td>Anônimo (Basic Auth)</td>
+                </tr>
+                <tr>
+                  <td><strong>Passo 1</strong></td>
+                  <td><span class="tag-code">POST</span></td>
+                  <td><code>/api/customers/identify</code></td>
+                  <td>Cliente informa CPF, celular ou escaneia QR Code.</td>
+                  <td>Bearer JWT (Staff)</td>
+                </tr>
+                <tr>
+                  <td><strong>Passo 2</strong></td>
+                  <td><span class="tag-code">GET</span></td>
+                  <td><code>/api/bonus/balance/{customerId}</code></td>
+                  <td>Consulta de saldo disponível para abatimento.</td>
+                  <td>Bearer JWT (Staff)</td>
+                </tr>
+                <tr>
+                  <td><strong>Passo 3</strong></td>
+                  <td><span class="tag-code">POST</span></td>
+                  <td><code>/api/campaigns/simulate</code></td>
+                  <td>Simulação opcional prévia antes do fechamento.</td>
+                  <td>Bearer JWT (Staff)</td>
+                </tr>
+                <tr>
+                  <td><strong>Passo 4</strong></td>
+                  <td><span class="tag-code">POST</span></td>
+                  <td><code>/api/bonus/redemption</code></td>
+                  <td>Efetivação do resgate no momento do pagamento.</td>
+                  <td>Bearer JWT (Staff)</td>
+                </tr>
+                <tr>
+                  <td><strong>Passo 5</strong></td>
+                  <td><span class="tag-code">POST</span></td>
+                  <td><code>/api/bonus/generation</code></td>
+                  <td>Fechamento final da venda e cálculo do motor (Contrato v2).</td>
+                  <td>Bearer JWT (Staff)</td>
+                </tr>
+                <tr>
+                  <td><strong>Passo 6</strong></td>
+                  <td><span class="tag-code">POST</span></td>
+                  <td><code>/api/pos/sync</code></td>
+                  <td>Sincronização offline em caso de contingência de rede.</td>
+                  <td>Bearer JWT (Staff)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-warning">
+            <span class="callout-icon"><svg class="svg-icon" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <div>
+              <strong>Segurança Anti-Spoofing:</strong> O PDV <strong>nunca deve enviar <code>storeId</code> ou <code>operatorId</code> no corpo da requisição</strong>. 
+              O servidor backend extrai essas informações diretamente das <em>claims</em> seguras contidas no token JWT gerado no Passo 0.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           11. EXEMPLOS DE REQUISIÇÕES E RESPOSTAS (PAYLOADS REAIS & TABS)
+           ==================================================================== -->
+      <section id="exemplos-requisicoes" class="doc-section" data-view-type="tech">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">11</span>
+            <h2 class="section-title">Exemplos de Requisições e Respostas (Contrato v2)</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-tech">JSON Payloads</span>
+            <span class="badge badge-tech">LLB-157</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Contrato de Fechamento de Venda: POST /api/bonus/generation</h3>
+          <p>
+            Payload oficial utilizado pelas 77 lojas no encerramento do cupom fiscal. Alterne as abas para ver em diferentes formatos:
+          </p>
+
+          <div class="code-box">
+            <div class="code-header">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" data-lang="json">JSON</button>
+                <button class="code-tab-btn" data-lang="curl">cURL</button>
+                <button class="code-tab-btn" data-lang="csharp">C# (.NET)</button>
+              </div>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code data-lang="json">{
+  <span class="prop">"saleId"</span>: <span class="str">"CUPOM-FISCAL-987654"</span>,
+  <span class="prop">"customerId"</span>: <span class="str">"6f9619ff-8b86-d011-b42d-00cf4fc964ff"</span>,
+  <span class="prop">"customerCpf"</span>: <span class="str">"123.456.789-00"</span>,
+  <span class="prop">"redeemedBonusAmount"</span>: <span class="num">30.00</span>,
+  <span class="prop">"payments"</span>: [
+    {
+      <span class="prop">"method"</span>: <span class="str">"CARTAO_LOJAO"</span>,
+      <span class="prop">"amount"</span>: <span class="num">150.00</span>
+    },
+    {
+      <span class="prop">"method"</span>: <span class="str">"PIX"</span>,
+      <span class="prop">"amount"</span>: <span class="num">70.00</span>
+    }
+  ],
+  <span class="prop">"items"</span>: [
+    {
+      <span class="prop">"sku"</span>: <span class="str">"VESTIDO-ESTAMPADO-M"</span>,
+      <span class="prop">"amount"</span>: <span class="num">140.00</span>,
+      <span class="prop">"quantity"</span>: <span class="num">1</span>,
+      <span class="prop">"category"</span>: <span class="str">"Feminino"</span>,
+      <span class="prop">"isEligible"</span>: <span class="kw">true</span>,
+      <span class="prop">"isClearance"</span>: <span class="kw">false</span>
+    }
+  ]
+}</code></pre>
+            <pre style="display: none;"><code data-lang="curl">curl -X POST "https://api-crm.lojaodobras.com.br/api/bonus/generation" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "saleId": "CUPOM-FISCAL-987654",
+    "customerId": "6f9619ff-8b86-d011-b42d-00cf4fc964ff",
+    "redeemedBonusAmount": 30.00,
+    "payments": [{"method": "CARTAO_LOJAO", "amount": 150.00}]
+  }'</code></pre>
+            <pre style="display: none;"><code data-lang="csharp">var client = new HttpClient();
+client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+var requestData = new {
+    SaleId = "CUPOM-FISCAL-987654",
+    CustomerId = Guid.Parse("6f9619ff-8b86-d011-b42d-00cf4fc964ff"),
+    RedeemedBonusAmount = 30.00m
+};
+var response = await client.PostAsJsonAsync("/api/bonus/generation", requestData);</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-header">
+              <span>Response (201 Created): Retorno do Motor com Memória de Cálculo</span>
+              <button class="copy-btn" data-target="code-res-gen">Copiar JSON</button>
+            </div>
+            <pre><code id="code-res-gen">{
+  <span class="prop">"outcome"</span>: <span class="str">"generated"</span>,
+  <span class="prop">"bonusLotId"</span>: <span class="str">"f7847b2c-2345-4890-bcde-9876543210ab"</span>,
+  <span class="prop">"amount"</span>: <span class="num">38.00</span>,
+  <span class="prop">"expiresAt"</span>: <span class="str">"2026-10-31T23:59:59Z"</span>,
+  <span class="prop">"trace"</span>: {
+    <span class="prop">"winningCampaignId"</span>: <span class="str">"3fa85f64-5717-4562-b3fc-2c963f66afa6"</span>,
+    <span class="prop">"winningCampaignName"</span>: <span class="str">"QA - LUIZ - Campanha C002 - Cartao Lojao 20%"</span>,
+    <span class="prop">"eligibleBase"</span>: <span class="num">190.00</span>,
+    <span class="prop">"calculatedAmount"</span>: <span class="num">38.00</span>,
+    <span class="prop">"grantedAmount"</span>: <span class="num">38.00</span>,
+    <span class="prop">"floorApplied"</span>: <span class="kw">false</span>,
+    <span class="prop">"ceilingApplied"</span>: <span class="kw">false</span>,
+    <span class="prop">"paymentMethod"</span>: <span class="str">"CARTAO_LOJAO"</span>,
+    <span class="prop">"redeemedBonusAmount"</span>: <span class="num">30.00</span>
+  }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           12. FLUXO DE COMUNICAÇÃO ARQUITETURAL (PONTA A PONTA)
+           ==================================================================== -->
+      <section id="fluxo-comunicacao" class="doc-section" data-view-type="tech">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">12</span>
+            <h2 class="section-title">Fluxo de Comunicação Arquitetural (Ponta a Ponta)</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-tech">Topologia</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Visão Integrada: Portal &harr; API Gateway &harr; Banco de Dados &harr; PDV</h3>
+          <p>
+            O diagrama abaixo sintetiza como os 4 ecossistemas do projeto conversam de forma transacional e atômica:
+          </p>
+
+          <div class="architecture-container">
+            <div class="arch-flow-diagram">
+              <div class="arch-node">
+                <div class="arch-node-icon"><svg class="arch-node-svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <h5>1. Portal Admin</h5>
+                <p>Comercial parametriza e Gerente aprova com mTLS.</p>
+              </div>
+              <div class="arch-arrow">
+                ➔
+                <span>HTTPS / JWT</span>
+              </div>
+              <div class="arch-node">
+                <div class="arch-node-icon"><svg class="arch-node-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <h5>2. API BFF (.NET)</h5>
+                <p>Extrai claims de loja/operador e executa motor de cálculo.</p>
+              </div>
+              <div class="arch-arrow">
+                ➔
+                <span>SQL / Transação</span>
+              </div>
+              <div class="arch-node">
+                <div class="arch-node-icon"><svg class="arch-node-svg" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                <h5>3. PostgreSQL 17</h5>
+                <p>Grava lote FIFO, debita verba e persiste Outbox.</p>
+              </div>
+              <div class="arch-arrow">
+                ➔
+                <span>WebSocket</span>
+              </div>
+              <div class="arch-node">
+                <div class="arch-node-icon"><svg class="arch-node-svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <h5>4. WhatsApp / Meta</h5>
+                <p>Disparo automático do saldo para o celular do cliente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           13. CONSULTAS SQL UTILIZADAS NOS TESTES DE MESA E AUDITORIA
+           ==================================================================== -->
+      <section id="consultas-sql" class="doc-section" data-view-type="tech">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">13</span>
+            <h2 class="section-title">Consultas SQL de Auditoria e Batimento de Dados</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-tech">SQL Queries</span>
+            <span class="badge badge-audit">Auditoria</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg> Consultas Prontas para Execução no Supabase / PostgreSQL</h3>
+          <p>
+            Utilize estas queries para auditar a memória de cálculo de vendas específicas, validar saldos líquidos de clientes ou conferir o consumo de verbas:
+          </p>
+
+          <!-- Query 1 -->
+          <div class="code-box">
+            <div class="code-header">
+              <span>Query 1: Validação do Trace da Memória de Cálculo da Venda</span>
+              <button class="copy-btn" data-target="sql-q1">Copiar SQL</button>
+            </div>
+            <pre><code id="sql-q1"><span class="kw">SELECT</span> 
+    sale_id,
+    store_id,
+    person_type,
+    payment_method,
+    eligible_base,
+    redeemed_bonus_amount,
+    winning_campaign_name,
+    calculated_amount,
+    granted_amount,
+    floor_applied,
+    ceiling_applied,
+    trace_json,
+    decided_at
+<span class="kw">FROM</span> engine_decisions
+<span class="kw">WHERE</span> sale_id = <span class="str">'CUPOM-FISCAL-123456'</span>;</code></pre>
+          </div>
+
+          <!-- Query 2 -->
+          <div class="code-box">
+            <div class="code-header">
+              <span>Query 2: Batimento de Saldo Líquido do Cliente (Método FIFO)</span>
+              <button class="copy-btn" data-target="sql-q2">Copiar SQL</button>
+            </div>
+            <pre><code id="sql-q2"><span class="kw">SELECT</span> 
+    customer_id,
+    <span class="fn">COUNT</span>(id) <span class="kw">AS</span> total_lotes,
+    <span class="fn">SUM</span>(amount) <span class="kw">AS</span> total_concedido,
+    <span class="fn">SUM</span>(redeemed_amount) <span class="kw">AS</span> total_resgatado,
+    <span class="fn">SUM</span>(amount - redeemed_amount) <span class="kw">AS</span> saldo_liquido_disponivel
+<span class="kw">FROM</span> bonus_lots
+<span class="kw">WHERE</span> customer_id = <span class="str">'c1a2b3c4-d5e6-7f8a-9b0c-1d2e3f4a5b6c'</span>
+  <span class="kw">AND</span> status <span class="kw">IN</span> (<span class="str">'Active'</span>, <span class="str">'PartiallyRedeemed'</span>)
+  <span class="kw">AND</span> expires_at > <span class="fn">NOW</span>()
+<span class="kw">GROUP BY</span> customer_id;</code></pre>
+          </div>
+
+          <!-- Query 3 -->
+          <div class="code-box">
+            <div class="code-header">
+              <span>Query 3: Auditoria da Regra de Colaborador (Anti-Moeda)</span>
+              <button class="copy-btn" data-target="sql-q3">Copiar SQL</button>
+            </div>
+            <pre><code id="sql-q3"><span class="kw">SELECT</span> 
+    sale_id,
+    customer_id,
+    person_type,
+    eligible_base,
+    granted_amount,
+    floor_applied,
+    <span class="kw">CASE</span> 
+        <span class="kw">WHEN</span> person_type = <span class="str">'Employee'</span> <span class="kw">AND</span> floor_applied = <span class="kw">false</span> <span class="kw">THEN</span> <span class="str">'CONFORME (SEM PISO)'</span>
+        <span class="kw">ELSE</span> <span class="str">'REVISAR'</span>
+    <span class="kw">END AS</span> status_auditoria
+<span class="kw">FROM</span> engine_decisions
+<span class="kw">WHERE</span> person_type = <span class="str">'Employee'</span>;</code></pre>
+          </div>
+
+          <!-- Query 4 -->
+          <div class="code-box">
+            <div class="code-header">
+              <span>Query 4: Painel de Consumo de Verba Orçamentária das Campanhas</span>
+              <button class="copy-btn" data-target="sql-q4">Copiar SQL</button>
+            </div>
+            <pre><code id="sql-q4"><span class="kw">SELECT</span> 
+    name,
+    status,
+    budget_limit,
+    budget_consumed,
+    (budget_limit - budget_consumed) <span class="kw">AS</span> verba_remanescente,
+    <span class="fn">ROUND</span>((budget_consumed / <span class="fn">NULLIF</span>(budget_limit, <span class="num">0</span>)) * <span class="num">100</span>, <span class="num">2</span>) <span class="kw">AS</span> percentual_consumido,
+    starts_at,
+    ends_at
+<span class="kw">FROM</span> campaigns
+<span class="kw">ORDER BY</span> created_at <span class="kw">DESC</span>;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           14. EVIDÊNCIAS, OBSERVAÇÕES, LIMITAÇÕES E PONTOS DE ATENÇÃO
+           ==================================================================== -->
+      <section id="pontos-atencao" class="doc-section" data-view-type="all">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">14</span>
+            <h2 class="section-title">Evidências, Limitações e Pontos de Atenção</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-tech">Runbook</span>
+            <span class="badge badge-exec">LGPD & Segurança</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Recomendações Críticas para Operações e Suporte N2/N3</h3>
+
+          <div class="accordion open">
+            <div class="accordion-header">
+              <h4><svg class="svg-icon" viewBox="0 0 24 24" style="color:var(--brand-blue);"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> 1. Conformidade com a LGPD e Segurança de Dados Pessoais</h4>
+              <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p>
+                - Todos os dados sensíveis (CPF, telefone) trafegam criptografados com <strong>AES-GCM 256 bits</strong> e chegam mascarados ao monitor do caixa (<code>***.456.789-**</code>).<br>
+                - As fotos de biometria facial (módulo Fortface) <strong>nunca são armazenadas no banco de dados local</strong>; trafegam de forma efêmera apenas para validação e auditoria criptográfica.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h4><svg class="svg-icon" viewBox="0 0 24 24" style="color:var(--brand-blue);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 2. Idempotência em Caso de Oscilação de Internet</h4>
+              <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p>
+                - Se o Wi-Fi da loja oscilar no momento da requisição, o PDV pode reenviar a chamada com o mesmo <code>saleId</code> e <code>transactionId</code>.<br>
+                - O banco de dados rejeita re-inserções duplicadas via índice único, retornando a mesma resposta original sem debitar ou conceder bônus duas vezes.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h4><svg class="svg-icon" viewBox="0 0 24 24" style="color:var(--brand-blue);"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> 3. Modo de Contingência Offline</h4>
+              <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p>
+                - Se a loja ficar sem conexão, os cupons fiscais são salvos localmente na fila contingencial do PDV.<br>
+                - Assim que a internet for restabelecida, o PDV envia o lote para <code>POST /api/pos/sync</code> para conciliação retroativa e disparo das notificações.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           15. STATUS ATUAL DAS FUNCIONALIDADES E PRÓXIMAS ETAPAS
+           ==================================================================== -->
+      <section id="status-roadmap" class="doc-section" data-view-type="exec">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">15</span>
+            <h2 class="section-title">Status Atual das Funcionalidades e Roadmap</h2>
+          </div>
+          <div class="section-badges">
+            <span class="badge badge-exec">Roadmap 2026</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="heading-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="6"/><line x1="18" y1="10" x2="6" y2="10"/><path d="M18 6l4 4-4 4H6V2h12z"/><line x1="6" y1="2" x2="6" y2="22"/></svg> Radar de Maturidade por Módulo</h3>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Módulo / Funcionalidade</th>
+                  <th>Maturidade Atual</th>
+                  <th>Próxima Etapa Planejada</th>
+                  <th>Responsável</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Motor de Regras & Cálculo</strong></td>
+                  <td><span class="status-tag status-approved">100% Homologado</span></td>
+                  <td>Rollout em escala para as 77 filiais.</td>
+                  <td>Engenharia de Software</td>
+                </tr>
+                <tr>
+                  <td><strong>Portal Administrativo (Wizard)</strong></td>
+                  <td><span class="status-tag status-approved">100% Concluído</span></td>
+                  <td>Treinamento da equipe de marketing / comercial.</td>
+                  <td>Produto / Comercial</td>
+                </tr>
+                <tr>
+                  <td><strong>Contrato PDV v2 (LLB-157)</strong></td>
+                  <td><span class="status-tag status-approved">Homologado</span></td>
+                  <td>Atualização do binário dos PDVs físicos nas lojas.</td>
+                  <td>Operações de TI / Checkout</td>
+                </tr>
+                <tr>
+                  <td><strong>Biometria Facial (Fortface)</strong></td>
+                  <td><span class="status-tag status-approved">Integrado & mTLS</span></td>
+                  <td>Piloto em lojas selecionadas da capital.</td>
+                  <td>Segurança & Inovação</td>
+                </tr>
+                <tr>
+                  <td><strong>Disparo de WhatsApp (Outbox)</strong></td>
+                  <td><span class="status-tag status-approved">Pronto</span></td>
+                  <td>Ativação dos templates aprovados pela Meta.</td>
+                  <td>Marketing / CRM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Page Footer -->
+    <footer class="page-footer">
+      <div class="footer-logo">Lojão do Brás — CRM Mais Bônus 2026</div>
+      <p class="footer-text">
+        Documentação viva e fonte autoritativa sobre o motor de campanhas e governança fiscal de fidelidade. 
+        Atualizado automaticamente conforme homologação técnica e de negócio.
+      </p>
+      <div style="font-size: 0.75rem; color: var(--text-subtle); margin-top: 8px;">
+        © 2026 Lojão do Brás. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
